@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
        // binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        Intent intent = new Intent(this, MainActivity2.class);
+        Intent intent = new Intent(this, phoneCharge.class);
         startActivity(intent);
 
     }

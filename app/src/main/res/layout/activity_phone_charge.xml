@@ -8,121 +8,130 @@
     android:background="@drawable/phonecharge"
     >
 
-    <ImageView
-        android:id="@+id/bwRightel"
-        android:layout_width="74dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="36dp"
-        android:src="@tools:sample/avatars"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:srcCompat="@drawable/bw_rightel" />
-
-    <ImageView
-        android:id="@+id/bwIrancel"
-        android:layout_width="60dp"
-        android:clickable="true"
-
-        android:layout_height="41dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="36dp"
-        android:src="@tools:sample/avatars"
-        app:layout_constraintStart_toEndOf="@+id/rightel"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:srcCompat="@drawable/bw_irancel" />
-
-    <ImageView
-        android:id="@+id/bwHamrahAval"
-        android:clickable="true"
-
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="34dp"
-        app:layout_constraintStart_toEndOf="@+id/irancel"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:srcCompat="@drawable/bw_hamrahaval" />
-
-    <ImageView
-        android:id="@+id/rightel"
-        android:layout_width="74dp"
-        android:layout_height="44dp"
-        android:visibility="invisible"
-
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="36dp"
-        android:src="@tools:sample/avatars"
-        android:clickable="true"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:srcCompat="@drawable/rightel" />
-
-    <ImageView
-        android:id="@+id/irancel"
-        android:layout_width="60dp"
-        android:clickable="true"
-        android:visibility="invisible"
-        android:layout_height="41dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="36dp"
-        android:src="@tools:sample/avatars"
-        app:layout_constraintStart_toEndOf="@+id/rightel"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:srcCompat="@drawable/irancel" />
-
-    <ImageView
-        android:id="@+id/hamrahAval"
-        android:clickable="true"
-        android:visibility="invisible"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="34dp"
-        app:layout_constraintStart_toEndOf="@+id/irancel"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:srcCompat="@drawable/hamrahaval" />
 
     <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="247dp"
         android:layout_height="51dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="142dp"
         android:ems="10"
         android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
+
+    app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/priceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="136dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/irancel" />
+
+    <ImageButton
+        android:id="@+id/irancel"
+        android:layout_width="65dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="2dp"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintEnd_toStartOf="@+id/hamrahAval"
+        app:layout_constraintStart_toEndOf="@+id/rightel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/irancel" />
+
+    <ImageButton
+        android:id="@+id/rightel"
+        android:layout_width="93dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="1dp"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/irancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/rightel" />
+
+    <ImageButton
+        android:id="@+id/hamrahAval"
+        android:layout_width="46dp"
+        android:visibility="invisible"
+
+        android:layout_height="52dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="124dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/irancel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/hamrahaval" />
+
+
+    <ImageButton
+        android:id="@+id/bwIrancel"
+        android:layout_width="65dp"
+        android:layout_height="47dp"
+
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="2dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/hamrahAval"
+        app:layout_constraintStart_toEndOf="@+id/rightel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/bw_irancel" />
+
+    <ImageButton
+        android:id="@+id/bwRightel"
+        android:layout_width="93dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="1dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/irancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/bw_rightel" />
+
+    <ImageButton
+        android:id="@+id/bwHamrahAval"
+        android:layout_width="46dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="124dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/irancel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/bw_hamrahaval" />
 
     <Button
         android:id="@+id/buyBtn"
-        android:layout_width="404dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="320dp"
+        android:layout_width="383dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="3dp"
         android:backgroundTint="#B8B8B8"
         android:enabled="false"
         android:text="خرید"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/appIconBtn"
@@ -130,8 +139,10 @@
         android:layout_height="28dp"
         android:layout_marginStart="196dp"
         android:layout_marginTop="16dp"
-        android:background="#00FFFFFF"
+        android:layout_marginEnd="16dp"
 
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/contactUsBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -151,10 +162,79 @@
         android:layout_height="40dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="11dp"
+        android:layout_marginEnd="9dp"
         android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/infoBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/p100000"
+        android:layout_width="137dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="96dp"
+        android:backgroundTint="@color/lightGray"
+        android:text="100000"
+        android:textColor="@color/darkBlue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
+
+    <Button
+        android:id="@+id/p20000"
+        android:layout_width="137dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/lightGray"
+        android:text="20000"
+        android:textColor="@color/darkBlue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
+
+    <Button
+        android:id="@+id/p50000"
+        android:layout_width="137dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="@color/lightGray"
+        android:text="50000"
+        android:textColor="@color/darkBlue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
+
+    <Button
+        android:id="@+id/p10000"
+        android:layout_width="137dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="@color/lightGray"
+        android:text="10000"
+        android:textColor="@color/darkBlue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
+
+    <TextView
+        android:id="@+id/showCharge"
+        android:layout_width="290dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/buyBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
