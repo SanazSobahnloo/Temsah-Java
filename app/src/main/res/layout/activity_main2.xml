@@ -23,10 +23,10 @@ This is the Home Page-->
         android:id="@+id/playIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="112dp"
-        app:layout_constraintStart_toStartOf="@+id/videoView"
-        app:layout_constraintTop_toTopOf="@+id/videoView"
+        android:layout_marginTop="152dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/play_icon" />
 
     <Button
@@ -35,8 +35,10 @@ This is the Home Page-->
         android:layout_height="85dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="379dp"
+        android:layout_marginEnd="5dp"
         android:background="#00FFFFFF"
         android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/estelamBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,8 +49,10 @@ This is the Home Page-->
         android:layout_marginStart="46dp"
 
         android:layout_marginTop="379dp"
+        android:layout_marginEnd="52dp"
         android:background="#00FFFFFF"
         android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/chargeBtn"
         app:layout_constraintStart_toEndOf="@+id/registerBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,10 +60,11 @@ This is the Home Page-->
         android:id="@+id/chargeBtn"
         android:layout_width="77dp"
         android:layout_height="85dp"
-        android:layout_marginStart="51dp"
         android:layout_marginTop="379dp"
+        android:layout_marginEnd="39dp"
         android:background="#00FFFFFF"
         android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/estelamBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,10 +72,12 @@ This is the Home Page-->
         android:id="@+id/contactUsBtn"
         android:layout_width="77dp"
         android:layout_height="85dp"
-        android:layout_marginStart="295dp"
+        android:layout_marginStart="292dp"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="1dp"
         android:background="#00FFFFFF"
         android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/aboutUsBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chargeBtn" />
 
@@ -80,8 +87,10 @@ This is the Home Page-->
         android:layout_height="85dp"
         android:layout_marginStart="295dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="41dp"
         android:background="#00FFFFFF"
         android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactUsBtn" />
 
