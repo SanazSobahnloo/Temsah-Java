@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".phoneCharge"
+    android:background="@drawable/phonecharge"
+    >
+
+    <ImageView
+        android:id="@+id/bwRightel"
+        android:layout_width="74dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="36dp"
+        android:src="@tools:sample/avatars"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/bw_rightel" />
+
+    <ImageView
+        android:id="@+id/bwIrancel"
+        android:layout_width="60dp"
+        android:clickable="true"
+
+        android:layout_height="41dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="36dp"
+        android:src="@tools:sample/avatars"
+        app:layout_constraintStart_toEndOf="@+id/rightel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/bw_irancel" />
+
+    <ImageView
+        android:id="@+id/bwHamrahAval"
+        android:clickable="true"
+
+        android:layout_width="50dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toEndOf="@+id/irancel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/bw_hamrahaval" />
+
+    <ImageView
+        android:id="@+id/rightel"
+        android:layout_width="74dp"
+        android:layout_height="44dp"
+        android:visibility="invisible"
+
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="36dp"
+        android:src="@tools:sample/avatars"
+        android:clickable="true"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/rightel" />
+
+    <ImageView
+        android:id="@+id/irancel"
+        android:layout_width="60dp"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:layout_height="41dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="36dp"
+        android:src="@tools:sample/avatars"
+        app:layout_constraintStart_toEndOf="@+id/rightel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/irancel" />
+
+    <ImageView
+        android:id="@+id/hamrahAval"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:layout_width="50dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toEndOf="@+id/irancel"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:srcCompat="@drawable/hamrahaval" />
+
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="247dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="136dp"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/priceBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="128dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+
+    <Button
+        android:id="@+id/buyBtn"
+        android:layout_width="404dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="320dp"
+        android:backgroundTint="#B8B8B8"
+        android:enabled="false"
+        android:text="خرید"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
+
+    <Button
+        android:id="@+id/appIconBtn"
+        android:layout_width="138dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+
+        app:layout_constraintStart_toEndOf="@+id/contactUsBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/infoBtn"
+        android:layout_width="40dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="11dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/contactUsBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/contactUsBtn"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="11dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

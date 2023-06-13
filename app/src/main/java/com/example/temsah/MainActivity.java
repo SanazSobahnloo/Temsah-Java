@@ -3,6 +3,7 @@ package com.example.temsah;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 //import com.example.temsah.databinding.ActivityMainBinding;
@@ -17,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
        // binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
 
     }
 }

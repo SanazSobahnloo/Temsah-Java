@@ -4,12 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2"
-
     android:background="@drawable/homescreen"
+    tools:context=".MainActivity2">
+    <!--Starting the front of the project
+This is the Home Page-->
 
-    >
 
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="355dp"
+        android:layout_height="299dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/playIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintStart_toStartOf="@+id/videoView"
+        app:layout_constraintTop_toTopOf="@+id/videoView"
+        app:srcCompat="@drawable/play_icon" />
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="77dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="379dp"
+        android:background="#00FFFFFF"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/estelamBtn"
+        android:layout_width="77dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="46dp"
+
+        android:layout_marginTop="379dp"
+        android:background="#00FFFFFF"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@+id/registerBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/chargeBtn"
+        android:layout_width="77dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="379dp"
+        android:background="#00FFFFFF"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@+id/estelamBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/contactUsBtn"
+        android:layout_width="77dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="295dp"
+        android:layout_marginTop="40dp"
+        android:background="#00FFFFFF"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chargeBtn" />
+
+    <Button
+        android:id="@+id/aboutUsBtn"
+        android:layout_width="77dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="295dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactUsBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
