@@ -32,6 +32,25 @@
         app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent">
 
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="زن"
+            android:textColor="@color/darkBlue"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="مرد"
+            android:textColor="@color/darkBlue"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </RadioGroup>
 
     <EditText
@@ -98,29 +117,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/male_user_light" />
-
-    <RadioButton
-        android:id="@+id/male"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="مرد"
-        android:textColor="@color/darkBlue"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="644dp" />
-
-    <RadioButton
-        android:id="@+id/female"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="زن"
-        android:textColor="@color/darkBlue"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="528dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

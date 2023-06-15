@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
