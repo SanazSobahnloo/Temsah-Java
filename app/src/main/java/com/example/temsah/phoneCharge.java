@@ -51,7 +51,7 @@ public class phoneCharge extends AppCompatActivity {
             public void onClick(View view) {
                 binding.priceBtn.setText("1000");
                 price=Integer.parseInt(binding.priceBtn.getText().toString());
-                finalprice=(price+200);
+                finalprice=(price+300);
                 binding.showCharge.append(finalprice.toString());
             }
         });
