@@ -13,12 +13,11 @@
         android:id="@+id/phoneNumber"
         android:layout_width="247dp"
         android:layout_height="51dp"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
         android:inputType="phone"
 
-    app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,34 +26,34 @@
         android:id="@+id/priceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/irancel" />
 
     <ImageButton
-        android:id="@+id/irancel"
+        android:id="@+id/bwIrancel"
         android:layout_width="65dp"
         android:layout_height="47dp"
+
         android:layout_marginStart="2dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="2dp"
         android:background="#00FFFFFF"
-        android:visibility="invisible"
-
         app:layout_constraintEnd_toStartOf="@+id/hamrahAval"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/rightel"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:srcCompat="@drawable/irancel" />
+        app:srcCompat="@drawable/bw_irancel" />
 
     <ImageButton
         android:id="@+id/rightel"
         android:layout_width="93dp"
         android:layout_height="47dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="1dp"
         android:background="#00FFFFFF"
         android:visibility="invisible"
@@ -66,42 +65,43 @@
     <ImageButton
         android:id="@+id/hamrahAval"
         android:layout_width="46dp"
-        android:visibility="invisible"
-
         android:layout_height="52dp"
+
         android:layout_marginStart="2dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="124dp"
         android:background="#00FFFFFF"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/irancel"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
         app:srcCompat="@drawable/hamrahaval" />
 
-
     <ImageButton
-        android:id="@+id/bwIrancel"
+        android:id="@+id/irancel"
         android:layout_width="65dp"
         android:layout_height="47dp"
-
         android:layout_marginStart="2dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="2dp"
         android:background="#00FFFFFF"
+        android:visibility="invisible"
+
         app:layout_constraintEnd_toStartOf="@+id/hamrahAval"
         app:layout_constraintStart_toEndOf="@+id/rightel"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-        app:srcCompat="@drawable/bw_irancel" />
+        app:srcCompat="@drawable/irancel" />
 
     <ImageButton
         android:id="@+id/bwRightel"
         android:layout_width="93dp"
         android:layout_height="47dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="1dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/irancel"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
         app:srcCompat="@drawable/bw_rightel" />
@@ -111,10 +111,11 @@
         android:layout_width="46dp"
         android:layout_height="52dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="124dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/irancel"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
         app:srcCompat="@drawable/bw_hamrahaval" />
@@ -226,11 +227,14 @@
 
     <TextView
         android:id="@+id/showCharge"
-        android:layout_width="290dp"
-        android:layout_height="94dp"
+        android:layout_width="283dp"
+        android:layout_height="92dp"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="12dp"
+        android:gravity="center|right"
+        android:text="مبلغ قابل پرداخت : "
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buyBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
