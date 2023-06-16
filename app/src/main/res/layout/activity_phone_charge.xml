@@ -43,7 +43,7 @@
         android:layout_marginEnd="2dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/hamrahAval"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toEndOf="@+id/rightel"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
         app:srcCompat="@drawable/bw_irancel" />
@@ -101,7 +101,7 @@
         android:layout_marginEnd="1dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/irancel"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
         app:srcCompat="@drawable/bw_rightel" />
@@ -115,7 +115,7 @@
         android:layout_marginEnd="124dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/irancel"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
         app:srcCompat="@drawable/bw_hamrahaval" />
