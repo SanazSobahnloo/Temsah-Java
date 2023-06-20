@@ -3,7 +3,9 @@ package com.example.temsah;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -139,6 +141,7 @@ String url;
             object.put("MobileNo",number);
             object.put("OperatorType",operator);
             object.put("AmountPure",amount);
+            object.put("mid","0");
         }
         catch (Exception e){
             Toast.makeText(phoneCharge.this,e.getMessage(),Toast.LENGTH_SHORT).show();
@@ -160,6 +163,8 @@ String url;
 
             JSONObject jsonObject = new JSONObject(response.body().string());
             url = jsonObject.getJSONArray("data").getJSONObject(0).getString("url");
+            Uri uri=Uri.parse(url);
+            startActivity(new Intent(Intent.ACTION_VIEW,uri));
 
         } catch (JSONException e) {
             Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
