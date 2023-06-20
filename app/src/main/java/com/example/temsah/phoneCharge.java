@@ -20,12 +20,26 @@ public class phoneCharge extends AppCompatActivity {
     Integer price;
     Integer finalprice;
     Integer maliat=300;
+    Integer operator=0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_charge);
         binding=ActivityPhoneChargeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+
+        binding.buyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String number=binding.phoneNumber.getText().toString();
+                Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
+                callAPI(number);
+            }
+        });
         binding.bwHamrahAval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,7 +49,9 @@ public class phoneCharge extends AppCompatActivity {
                 binding.bwIrancel.setVisibility(View.VISIBLE);
                 binding.rightel.setVisibility(View.INVISIBLE);
                 binding.bwRightel.setVisibility(View.VISIBLE);
-                binding.phoneNumber.setBackgroundColor(Color.parseColor("#febe10"));
+                binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+                operator=1;
+
             }
         });
         binding.bwIrancel.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +63,8 @@ public class phoneCharge extends AppCompatActivity {
                 binding.bwRightel.setVisibility(View.VISIBLE);
                 binding.hamrahAval.setVisibility(View.INVISIBLE);
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
-                binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+                binding.phoneNumber.setBackgroundColor(Color.parseColor("#febe10"));
+                operator=2;
             }
         });
         binding.bwRightel.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +77,7 @@ public class phoneCharge extends AppCompatActivity {
                 binding.hamrahAval.setVisibility(View.INVISIBLE);
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
                 binding.phoneNumber.setBackgroundColor(Color.parseColor("#941063"));
+                operator=3;
 
             }
         });
@@ -81,10 +99,10 @@ public class phoneCharge extends AppCompatActivity {
                    binding.showCharge.setText(finalprice.toString());
                 }
          });
-         binding.p100000.setOnClickListener(new View.OnClickListener() {
+         binding.p50000.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 binding.priceBtn.setText("10000");
+                 binding.priceBtn.setText("5000");
                  price=Integer.parseInt(binding.priceBtn.getText().toString());
                  finalprice=(price+maliat);
                  binding.showCharge.setText(finalprice.toString());
@@ -100,5 +118,9 @@ public class phoneCharge extends AppCompatActivity {
                  binding.showCharge.setText(finalprice.toString());
              }
          });
+
+    }
+
+    private void callAPI(String number) {
     }
 }
