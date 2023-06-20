@@ -1,22 +1,32 @@
 package com.example.temsah;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.temsah.databinding.ActivityPhoneChargeBinding;
 
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 
 public class phoneCharge extends AppCompatActivity {
     ActivityPhoneChargeBinding binding;
     public static final MediaType JSON
             = MediaType.get("application/json;charset=utf-8");
     OkHttpClient client=new OkHttpClient();
-    //Boolean state=Boolean.FALSE;
+
     Integer price;
     Integer finalprice;
     Integer maliat=300;
@@ -37,7 +47,7 @@ public class phoneCharge extends AppCompatActivity {
             public void onClick(View view) {
                 String number=binding.phoneNumber.getText().toString();
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
-                callAPI(number);
+                callAPI(number,operator,amount);
             }
         });
         binding.bwHamrahAval.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +131,22 @@ public class phoneCharge extends AppCompatActivity {
 
     }
 
-    private void callAPI(String number) {
-    }
+    private void callAPI(String number,int operator, int amount) {
+        JSONObject object=new JSONObject();
+        try {
+            object.put("MobileNo",number);
+            object.put("OperatorType",operator);
+            object.put("AmountPure",amount);
+        }
+        catch (Exception e){
+            Toast.makeText(phoneCharge.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+        RequestBody requestBody=RequestBody.create(object.toString(),JSON);
+        Request request=new Request.Builder().url("https://topup.pec.ir/")
+                .post(requestBody)
+                .build();
+
+
+
+        }
 }

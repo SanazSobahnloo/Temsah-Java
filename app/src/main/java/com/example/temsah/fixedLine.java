@@ -30,7 +30,6 @@ public class fixedLine extends AppCompatActivity {
             = MediaType.get("application/json;charset=utf-8");
     OkHttpClient client=new OkHttpClient();
     
-    
     String MidTerm;
     String Finalterm;
       
@@ -47,7 +46,6 @@ public class fixedLine extends AppCompatActivity {
                 callAPI(number);
             }
         });
-
     }
 
     private void callAPI(String number) {
