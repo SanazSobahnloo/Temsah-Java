@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.temsah.databinding.ActivityPhoneChargeBinding;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -20,18 +21,19 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class phoneCharge extends AppCompatActivity {
     ActivityPhoneChargeBinding binding;
     public static final MediaType JSON
             = MediaType.get("application/json;charset=utf-8");
-    OkHttpClient client=new OkHttpClient();
+    OkHttpClient Client=new OkHttpClient();
 
     Integer price;
     Integer finalprice;
     Integer maliat=300;
     Integer operator=0;
-
+String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,8 +147,29 @@ public class phoneCharge extends AppCompatActivity {
         Request request=new Request.Builder().url("https://topup.pec.ir/")
                 .post(requestBody)
                 .build();
+        Client.newCall(request).enqueue(new Callback() {
+    @Override
+    public void onFailure(@NonNull Call call, @NonNull IOException e) {
+        Toast.makeText(phoneCharge.this,"failed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+        try {
 
 
+            JSONObject jsonObject = new JSONObject(response.body().string());
+            url = jsonObject.getJSONArray("data").getJSONObject(0).getString("url");
+
+        } catch (JSONException e) {
+            Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
         }
+    }
+});
+
+
+
+    }
+
 }
