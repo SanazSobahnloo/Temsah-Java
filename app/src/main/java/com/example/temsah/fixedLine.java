@@ -126,7 +126,7 @@ public class fixedLine extends AppCompatActivity {
                 binding.finbill.setVisibility(View.VISIBLE);
                 binding.fin.setVisibility(View.VISIBLE);
                 binding.mid.setVisibility(View.VISIBLE);
-                binding.midbill.setText(MidTerm);
+
                 binding.finbill.setText(Finalterm);
                 }
             catch (JSONException e){

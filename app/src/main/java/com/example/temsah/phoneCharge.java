@@ -61,12 +61,39 @@ String url;
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 if (charSequence.toString().startsWith("0937")){binding.button2.setBackgroundColor(Color.parseColor("#febe10"));
+
+
+                    binding.bwIrancel.setVisibility(View.INVISIBLE);
+                    binding.irancel.setVisibility(View.VISIBLE);
+                    binding.rightel.setVisibility(View.INVISIBLE);
+                    binding.bwRightel.setVisibility(View.VISIBLE);
+                    binding.hamrahAval.setVisibility(View.INVISIBLE);
+                    binding.bwHamrahAval.setVisibility(View.VISIBLE);
+
+                    operator=2;
+
+
                 } else if (charSequence.toString().startsWith("0912")) {
                     binding.button2.setBackgroundColor(Color.parseColor("#54c5d0"));
+                    binding.bwHamrahAval.setVisibility(View.INVISIBLE);
+                    binding.hamrahAval.setVisibility(View.VISIBLE);
+                    binding.irancel.setVisibility(View.INVISIBLE);
+                    binding.bwIrancel.setVisibility(View.VISIBLE);
+                    binding.rightel.setVisibility(View.INVISIBLE);
+                    binding.bwRightel.setVisibility(View.VISIBLE);
+                    operator=1;
                 } else if (charSequence.toString().startsWith("0921")) {
                     binding.button2.setBackgroundColor(Color.parseColor("#941063"));
                 }
-                else {binding.button2.setBackgroundColor(Color.parseColor("#ffffff"));}
+                else {binding.button2.setBackgroundColor(Color.parseColor("#ffffff"));
+                    binding.bwRightel.setVisibility(View.INVISIBLE);
+                    binding.rightel.setVisibility(View.VISIBLE);
+                    binding.irancel.setVisibility(View.INVISIBLE);
+                    binding.bwIrancel.setVisibility(View.VISIBLE);
+                    binding.hamrahAval.setVisibility(View.INVISIBLE);
+                    binding.bwHamrahAval.setVisibility(View.VISIBLE);
+
+                    operator=3;}
 
             }
 
@@ -216,7 +243,6 @@ String url;
             url = object.getString("url");
             Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(url));
             startActivity(intent);
-
         } catch (JSONException e) {
             Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
