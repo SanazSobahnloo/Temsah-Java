@@ -124,26 +124,28 @@ public class fixedLine extends AppCompatActivity {
             try {
                    JSONObject jsonObject=new JSONObject(response.body().string());
 
-                   JSONObject data=jsonObject.getJSONObject("data");
+                   String url=jsonObject.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
+                   /*JSONObject data=jsonObject.getJSONObject("data");
                    String finalterm=data.getJSONObject("FinalTerm").getString("Amount");
                 String BILL=data.getJSONObject("FinalTerm").getString("BillID");
 
 
 
                 String mid=data.getJSONObject("MidlTerm").getString("Amount");
-                String BILLM=data.getJSONObject("MidlTerm").getString("BillID");
+                String BILLM=data.getJSONObject("MidlTerm").getString("BillID");*/
 
 
                 binding.midbill.setVisibility(View.VISIBLE);
-                binding.finbill.setVisibility(View.VISIBLE);
-                binding.fin.setVisibility(View.VISIBLE);
                 binding.mid.setVisibility(View.VISIBLE);
+                /*binding.finbill.setVisibility(View.VISIBLE);
+                binding.fin.setVisibility(View.VISIBLE);
+
                 binding.idfin.setVisibility(View.VISIBLE);
-                binding.idmid.setVisibility(View.VISIBLE);
-                binding.mid.setText(mid.toString());
-                binding.finbill.setText(finalterm.toString());
+                binding.idmid.setVisibility(View.VISIBLE);*/
+                binding.mid.setText(url.toString());
+                /*binding.finbill.setText(finalterm.toString());
                 binding.idmid.setText(BILLM.toString());
-                binding.idfin.setText(BILL.toString());
+                binding.idfin.setText(BILL.toString());*/
                 }
             catch (JSONException e){
                 //Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
