@@ -43,11 +43,14 @@ public class fixedLine extends AppCompatActivity {
         setContentView(R.layout.activity_fixed_line);
         binding= ActivityFixedLineBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        String number=binding.phone.getText().toString();
+        callAPI(number);
         binding.estelamBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String number=binding.phone.getText().toString();
-                callAPI(number);
+
+                binding.midbill.setVisibility(View.VISIBLE);
+                binding.mid.setVisibility(View.VISIBLE);
             }
         });
 
@@ -135,8 +138,7 @@ public class fixedLine extends AppCompatActivity {
                 String BILLM=data.getJSONObject("MidlTerm").getString("BillID");*/
 
 
-                binding.midbill.setVisibility(View.VISIBLE);
-                binding.mid.setVisibility(View.VISIBLE);
+
                 /*binding.finbill.setVisibility(View.VISIBLE);
                 binding.fin.setVisibility(View.VISIBLE);
 

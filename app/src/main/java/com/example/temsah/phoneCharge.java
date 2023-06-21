@@ -232,21 +232,8 @@ String URL
 
                 .post(requestBody)
                 .build();
-        try {
-            Response response = Client.newCall(request).execute();
 
-            if (response.isSuccessful()){
-                JSONObject jsonObject = new JSONObject(response.body().string());
-                URL = jsonObject.getString("url");
-                Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(URL));
-                startActivity(intent);
-            }
-            else {
-
-            }
-        }
-        catch (Exception e){}
-       /* Client.newCall(request).enqueue(new Callback() {
+        Client.newCall(request).enqueue(new Callback() {
     @Override
     public void onFailure(@NonNull Call call, @NonNull IOException e) {
         Toast.makeText(phoneCharge.this,"failed", Toast.LENGTH_SHORT).show();
@@ -263,7 +250,7 @@ String URL
             Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-});*/
+});
 
     }
 
