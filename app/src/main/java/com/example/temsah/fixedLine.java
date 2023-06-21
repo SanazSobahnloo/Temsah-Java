@@ -36,6 +36,7 @@ public class fixedLine extends AppCompatActivity {
     
     String MidTerm;
     String Finalterm;
+    String url;
       
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +44,14 @@ public class fixedLine extends AppCompatActivity {
         setContentView(R.layout.activity_fixed_line);
         binding= ActivityFixedLineBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         binding.estelamBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String number=binding.phone.getText().toString();
-                callAPI(number);
+
+                binding.midbill.setVisibility(View.VISIBLE);
+                binding.mid.setVisibility(View.VISIBLE);
+                binding.mid.setText(url.toString());
             }
         });
 
@@ -73,6 +77,8 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
+                String number=binding.phone.getText().toString();
+                callAPI(number);
             }
         });
         binding.infoBtn.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +110,8 @@ public class fixedLine extends AppCompatActivity {
             object.put("FixedLineNumber",number);
         }
         catch (Exception e){
-            Toast.makeText(fixedLine.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(fixedLine.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
         }
         RequestBody requestBody=RequestBody.create(object.toString(),JSON);
         Request request=new Request.Builder().url("https://charge.sep.ir/Inquiry/FixedLineBillInquiry")
@@ -122,29 +129,32 @@ public class fixedLine extends AppCompatActivity {
 
             try {
                    JSONObject jsonObject=new JSONObject(response.body().string());
-                   JSONObject data=jsonObject.getJSONObject("data");
-                   JSONObject finalterm=data.getJSONObject("FinalTerm");
-                   Long amount=finalterm.getLong("Amount");
-                   JSONObject BILL=finalterm.getJSONObject("BillID");
-                Finalterm=amount.toString();
 
-                JSONObject mid=data.getJSONObject("MidlTerm");
-                Long amount2=mid.getLong("Amount");
-                JSONObject BILLM=mid.getJSONObject("BillID");
-                MidTerm=amount2.toString();
-                binding.midbill.setVisibility(View.VISIBLE);
-                binding.finbill.setVisibility(View.VISIBLE);
+                   url=jsonObject.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
+                   /*JSONObject data=jsonObject.getJSONObject("data");
+                   String finalterm=data.getJSONObject("FinalTerm").getString("Amount");
+                String BILL=data.getJSONObject("FinalTerm").getString("BillID");
+
+
+
+                String mid=data.getJSONObject("MidlTerm").getString("Amount");
+                String BILLM=data.getJSONObject("MidlTerm").getString("BillID");*/
+
+
+
+                /*binding.finbill.setVisibility(View.VISIBLE);
                 binding.fin.setVisibility(View.VISIBLE);
-                binding.mid.setVisibility(View.VISIBLE);
+
                 binding.idfin.setVisibility(View.VISIBLE);
-                binding.idmid.setVisibility(View.VISIBLE);
-                binding.mid.setText(MidTerm);
-                binding.finbill.setText(Finalterm);
+                binding.idmid.setVisibility(View.VISIBLE);*/
+
+                /*binding.finbill.setText(finalterm.toString());
                 binding.idmid.setText(BILLM.toString());
-                binding.idfin.setText(BILL.toString());
+                binding.idfin.setText(BILL.toString());*/
                 }
             catch (JSONException e){
-                Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                throw new RuntimeException(e);
             }
             }
         });

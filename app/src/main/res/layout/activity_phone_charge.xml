@@ -239,12 +239,12 @@
         android:layout_height="71dp"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="100dp"
         android:gravity="center|right"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/buyBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -254,7 +254,7 @@
         android:layout_marginBottom="80dp"
         android:gravity="center"
         android:text="مبلغ قابل پرداخت : "
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.817"
