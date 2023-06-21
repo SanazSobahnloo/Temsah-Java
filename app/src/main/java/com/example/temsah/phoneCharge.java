@@ -41,7 +41,8 @@ public class phoneCharge extends AppCompatActivity {
     Integer finalprice;
     Integer maliat=300;
     Integer operator=0;
-String url;
+String URL
+        ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -240,8 +241,8 @@ String url;
     public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
         try {
             JSONObject jsonObject = new JSONObject(response.body().string());
-            url = object.getString("url");
-            Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+            URL = jsonObject.getString("url");
+            Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(URL));
             startActivity(intent);
         } catch (JSONException e) {
             Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
