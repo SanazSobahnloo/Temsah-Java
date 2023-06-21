@@ -125,14 +125,23 @@ public class fixedLine extends AppCompatActivity {
                    JSONObject data=jsonObject.getJSONObject("data");
                    JSONObject finalterm=data.getJSONObject("FinalTerm");
                    Long amount=finalterm.getLong("Amount");
+                   JSONObject BILL=finalterm.getJSONObject("BillID");
                 Finalterm=amount.toString();
 
+                JSONObject mid=data.getJSONObject("MidlTerm");
+                Long amount2=mid.getLong("Amount");
+                JSONObject BILLM=mid.getJSONObject("BillID");
+                MidTerm=amount2.toString();
                 binding.midbill.setVisibility(View.VISIBLE);
                 binding.finbill.setVisibility(View.VISIBLE);
                 binding.fin.setVisibility(View.VISIBLE);
                 binding.mid.setVisibility(View.VISIBLE);
-
+                binding.idfin.setVisibility(View.VISIBLE);
+                binding.idmid.setVisibility(View.VISIBLE);
+                binding.mid.setText(MidTerm);
                 binding.finbill.setText(Finalterm);
+                binding.idmid.setText(BILLM.toString());
+                binding.idfin.setText(BILL.toString());
                 }
             catch (JSONException e){
                 Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
