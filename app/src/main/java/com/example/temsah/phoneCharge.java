@@ -50,13 +50,7 @@ String url;
         binding=ActivityPhoneChargeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         String num=binding.phoneNumber.getText().toString();
-        binding.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in=new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
-                startActivityForResult(in , RESULT_PICK_CONTACT);
-            }
-        });
+
         binding.phoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -66,7 +60,15 @@ String url;
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                if (charSequence.toString().startsWith("0936")){binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));}
+                if (charSequence.toString().startsWith("0937")){binding.phoneNumber.setBackgroundColor(Color.parseColor("#febe10"));
+                } else if (charSequence.toString().startsWith("0912")) {
+                    binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+                } else if (charSequence.toString().startsWith("0921")) {
+                    binding.phoneNumber.setBackgroundColor(Color.parseColor("#941063"));
+                }
+                else {binding.phoneNumber.setBackgroundColor(Color.parseColor("#ffffff"));}
+
+
             }
 
             @Override
@@ -101,7 +103,7 @@ String url;
             public void onClick(View view) {
                 String number=binding.phoneNumber.getText().toString();
                 String firstthreenum=number.substring(0,4);
-                if (firstthreenum=="0936"){}
+
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
                 callAPI(number,operator,amount);
             }
@@ -115,7 +117,7 @@ String url;
                 binding.bwIrancel.setVisibility(View.VISIBLE);
                 binding.rightel.setVisibility(View.INVISIBLE);
                 binding.bwRightel.setVisibility(View.VISIBLE);
-                binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+
                 operator=1;
 
             }
@@ -129,7 +131,7 @@ String url;
                 binding.bwRightel.setVisibility(View.VISIBLE);
                 binding.hamrahAval.setVisibility(View.INVISIBLE);
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
-                binding.phoneNumber.setBackgroundColor(Color.parseColor("#febe10"));
+
                 operator=2;
             }
         });
@@ -142,7 +144,7 @@ String url;
                 binding.bwIrancel.setVisibility(View.VISIBLE);
                 binding.hamrahAval.setVisibility(View.INVISIBLE);
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
-                binding.phoneNumber.setBackgroundColor(Color.parseColor("#941063"));
+
                 operator=3;
 
             }
@@ -212,9 +214,9 @@ String url;
     public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
         try {
             JSONObject jsonObject = new JSONObject(response.body().string());
-            url = jsonObject.getString("url");
-            Uri uri=Uri.parse(url);
-            startActivity(new Intent(Intent.ACTION_VIEW,uri));
+            url = object.getString("url");
+            Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+            startActivity(intent);
 
         } catch (JSONException e) {
             Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -224,32 +226,5 @@ String url;
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case RESULT_PICK_CONTACT:
-                    contactPicked(data);
-                    break;
-            }
-        } else {
-            Toast.makeText(phoneCharge.this, "failed to pick", Toast.LENGTH_SHORT).show();
-        }
-    }
-    private void contactPicked(Intent data){
-        Cursor cursor=null;
-        try {
-            String phonepick=null;
-            Uri uripick=data.getData();
-                   cursor=getContentResolver().query(uripick,null,null,null,null) ;
-                   cursor.moveToFirst();
-                   int phoneindex=cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                   phonepick=cursor.getString(phoneindex);
-                   binding.phoneNumber.setText(phonepick);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+
 }
