@@ -226,15 +226,14 @@ String url;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode==RESULT_OK)
-        {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case RESULT_PICK_CONTACT:
                     contactPicked(data);
                     break;
             }
-        }
-        else {
+        } else {
             Toast.makeText(phoneCharge.this, "failed to pick", Toast.LENGTH_SHORT).show();
         }
     }
