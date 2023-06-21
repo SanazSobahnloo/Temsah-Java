@@ -212,7 +212,7 @@ String url;
     public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
         try {
             JSONObject jsonObject = new JSONObject(response.body().string());
-            url = jsonObject.getJSONArray("data").getJSONObject(0).getString("url");
+            url = jsonObject.getString("url");
             Uri uri=Uri.parse(url);
             startActivity(new Intent(Intent.ACTION_VIEW,uri));
 
