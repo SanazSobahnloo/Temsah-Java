@@ -87,7 +87,7 @@ String url;
                 binding.bwIrancel.setVisibility(View.VISIBLE);
                 binding.rightel.setVisibility(View.INVISIBLE);
                 binding.bwRightel.setVisibility(View.VISIBLE);
-                //binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+                binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
                 operator=1;
 
             }
