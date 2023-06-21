@@ -31,8 +31,6 @@ import retrofit2.Retrofit;
 
 public class fixedLine extends AppCompatActivity {
 
-    private Retrofit retrofit;
-
     ActivityFixedLineBinding binding;
     public static final MediaType JSON
             = MediaType.get("application/json;charset=utf-8");
@@ -54,7 +52,10 @@ public class fixedLine extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                String number=binding.phone.getText().toString();
+                binding.mid.setVisibility(View.VISIBLE);
+                binding.fin.setVisibility(View.VISIBLE);
+               binding.textView6.setText(re5);
+               binding.textView7.setText(re5);
                 binding.midbill.setText(re1);
                 binding.finbill.setText(re3);
                 binding.idmid.setText(re2);
@@ -77,6 +78,7 @@ public class fixedLine extends AppCompatActivity {
                     binding.imageView3.setVisibility(View.INVISIBLE);
                     binding.imageView4.setVisibility(View.VISIBLE);
                 } else binding.imageView3.setVisibility(View.INVISIBLE);
+
                 binding.textView5.setText(binding.phone.getText().toString().trim());
 
 
