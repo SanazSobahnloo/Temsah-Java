@@ -43,8 +43,7 @@ public class fixedLine extends AppCompatActivity {
         setContentView(R.layout.activity_fixed_line);
         binding= ActivityFixedLineBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        String number=binding.phone.getText().toString();
-        callAPI(number);
+
         binding.estelamBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +75,8 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
+                String number=binding.phone.getText().toString();
+                callAPI(number);
             }
         });
         binding.infoBtn.setOnClickListener(new View.OnClickListener() {
