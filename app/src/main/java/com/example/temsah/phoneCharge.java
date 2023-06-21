@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
@@ -43,9 +45,22 @@ String url;
         setContentView(R.layout.activity_phone_charge);
         binding=ActivityPhoneChargeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.phoneNumber.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
 
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+            }
+        });
         binding.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +88,7 @@ String url;
             public void onClick(View view) {
                 String number=binding.phoneNumber.getText().toString();
                 String firstthreenum=number.substring(0,4);
-                if (firstthreenum=="0936"){binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));}
+                if (firstthreenum=="0936"){}
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
                 callAPI(number,operator,amount);
             }

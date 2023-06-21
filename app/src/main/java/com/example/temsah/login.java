@@ -39,8 +39,7 @@ public class login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentmain = new Intent(login.this, MainActivity2.class);
                 intentmain.putExtra("name",binding.name.getText().toString());
-
-
+                intentmain.putExtra("phone",binding.phoneNumber.getText().toString());
                 startActivity(intentmain);
             }
         });

@@ -4,24 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".phoneCharge"
     android:background="@drawable/phonecharge"
-    >
+    tools:context=".phoneCharge">
 
 
     <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="247dp"
         android:layout_height="51dp"
-        android:layout_marginTop="128dp"
         android:ems="10"
         android:inputType="phone"
 
         android:maxLength="11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="121dp" />
 
     <EditText
         android:id="@+id/priceBtn"
@@ -127,7 +123,6 @@
         android:layout_height="54dp"
         android:layout_marginBottom="3dp"
         android:backgroundTint="#B8B8B8"
-        android:enabled="false"
         android:text="خرید"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -171,38 +166,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/p100000"
-        android:layout_width="137dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="132dp"
-        android:backgroundTint="@color/lightGray"
-        android:text="100000"
-        android:textColor="@color/darkBlue"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
-
-    <Button
-        android:id="@+id/p20000"
-        android:layout_width="137dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="64dp"
-        android:backgroundTint="@color/lightGray"
-        android:text="20000"
-        android:textColor="@color/darkBlue"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
-
-    <Button
         android:id="@+id/p50000"
         android:layout_width="137dp"
         android:layout_height="55dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="48dp"
         android:backgroundTint="@color/lightGray"
         android:text="50000"
@@ -213,10 +180,24 @@
         app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
 
     <Button
+        android:id="@+id/p100000"
+        android:layout_width="137dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/lightGray"
+        android:text="100000"
+        android:textColor="@color/darkBlue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
+
+    <Button
         android:id="@+id/p10000"
         android:layout_width="137dp"
         android:layout_height="55dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="48dp"
         android:backgroundTint="@color/lightGray"
         android:text="10000"
@@ -224,6 +205,20 @@
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
+
+    <Button
+        android:id="@+id/p20000"
+        android:layout_width="137dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/lightGray"
+        android:text="20000"
+        android:textColor="@color/darkBlue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceBtn" />
 
     <TextView
