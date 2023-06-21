@@ -60,14 +60,13 @@ String url;
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                if (charSequence.toString().startsWith("0937")){binding.phoneNumber.setBackgroundColor(Color.parseColor("#febe10"));
+                if (charSequence.toString().startsWith("0937")){binding.button2.setBackgroundColor(Color.parseColor("#febe10"));
                 } else if (charSequence.toString().startsWith("0912")) {
-                    binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+                    binding.button2.setBackgroundColor(Color.parseColor("#54c5d0"));
                 } else if (charSequence.toString().startsWith("0921")) {
-                    binding.phoneNumber.setBackgroundColor(Color.parseColor("#941063"));
+                    binding.button2.setBackgroundColor(Color.parseColor("#941063"));
                 }
-                else {binding.phoneNumber.setBackgroundColor(Color.parseColor("#ffffff"));}
-
+                else {binding.button2.setBackgroundColor(Color.parseColor("#ffffff"));}
 
             }
 
