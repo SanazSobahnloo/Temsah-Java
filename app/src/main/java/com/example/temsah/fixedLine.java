@@ -61,7 +61,12 @@ public class fixedLine extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 if (charSequence.toString().startsWith("021")){binding.imageView3.setVisibility(View.VISIBLE);
-                }
+                    binding.imageView4.setVisibility(View.INVISIBLE);
+                } else if (charSequence.toString().startsWith("051")) {
+                    binding.imageView3.setVisibility(View.INVISIBLE);
+                    binding.imageView4.setVisibility(View.VISIBLE);
+                } else binding.imageView3.setVisibility(View.INVISIBLE);
+
 
             }
 

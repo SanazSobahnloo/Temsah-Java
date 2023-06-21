@@ -151,4 +151,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mtower" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="55dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="144dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/imamreza" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
