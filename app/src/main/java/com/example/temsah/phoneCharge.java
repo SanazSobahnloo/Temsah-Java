@@ -136,7 +136,6 @@ String URL
             @Override
             public void onClick(View view) {
                 String number=binding.phoneNumber.getText().toString();
-                String firstthreenum=number.substring(0,4);
 
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
                 callAPI(number,operator,amount);

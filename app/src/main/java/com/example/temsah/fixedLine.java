@@ -27,8 +27,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import retrofit2.Retrofit;
 
 public class fixedLine extends AppCompatActivity {
+
+    private Retrofit retrofit;
+
     ActivityFixedLineBinding binding;
     public static final MediaType JSON
             = MediaType.get("application/json;charset=utf-8");
@@ -36,8 +40,8 @@ public class fixedLine extends AppCompatActivity {
     
     String MidTerm;
     String Finalterm;
-    String url;
-      
+    String re1,re2,re3,re4,re5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +55,10 @@ public class fixedLine extends AppCompatActivity {
 
 
                 String number=binding.phone.getText().toString();
-                callAPI(number);
+                binding.midbill.setText(re1);
+                binding.finbill.setText(re3);
+                binding.idmid.setText(re2);
+                binding.idfin.setText(re4);
             }
         });
 
@@ -70,12 +77,14 @@ public class fixedLine extends AppCompatActivity {
                     binding.imageView3.setVisibility(View.INVISIBLE);
                     binding.imageView4.setVisibility(View.VISIBLE);
                 } else binding.imageView3.setVisibility(View.INVISIBLE);
+                binding.textView5.setText(binding.phone.getText().toString().trim());
 
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+                callAPI(binding.textView5.getText().toString());
 
             }
         });
@@ -102,14 +111,13 @@ public class fixedLine extends AppCompatActivity {
         });
     }
 
-    private void callAPI(String number) {
+    private void callAPI(CharSequence text) {
         JSONObject object=new JSONObject();
         try {
-            object.put("FixedLineNumber",number);
+            object.put("FixedLineNumber",text);
         }
-        catch (Exception e){
-            //Toast.makeText(fixedLine.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-            throw new RuntimeException(e);
+        catch (Exception e) {
+            Toast.makeText(fixedLine.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         RequestBody requestBody=RequestBody.create(object.toString(),JSON);
         Request request=new Request.Builder().url("https://charge.sep.ir/Inquiry/FixedLineBillInquiry")
@@ -128,29 +136,14 @@ public class fixedLine extends AppCompatActivity {
             try {
                    JSONObject jsonObject=new JSONObject(response.body().string());
 
-                   url=jsonObject.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
-                   /*JSONObject data=jsonObject.getJSONObject("data");
-                   String finalterm=data.getJSONObject("FinalTerm").getString("Amount");
-                String BILL=data.getJSONObject("FinalTerm").getString("BillID");
+                 re5=object.getJSONObject("data").getJSONObject("MidTerm").getString("BillID");
+                re1=object.getJSONObject("data").getJSONObject("MidTerm").getString("Amount");
+              re2=object.getJSONObject("data").getJSONObject("MidTerm").getString("PaymentID");
+                re3=object.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
+                re4=object.getJSONObject("data").getJSONObject("FinalTerm").getString("PaymentID");
 
 
 
-                String mid=data.getJSONObject("MidlTerm").getString("Amount");
-                String BILLM=data.getJSONObject("MidlTerm").getString("BillID");*/
-
-
-
-                /*binding.finbill.setVisibility(View.VISIBLE);
-                binding.fin.setVisibility(View.VISIBLE);
-
-                binding.idfin.setVisibility(View.VISIBLE);
-                binding.idmid.setVisibility(View.VISIBLE);*/
-                binding.midbill.setVisibility(View.VISIBLE);
-                binding.mid.setVisibility(View.VISIBLE);
-                binding.mid.setText(url);
-                /*binding.finbill.setText(finalterm.toString());
-                binding.idmid.setText(BILLM.toString());
-                binding.idfin.setText(BILL.toString());*/
                 }
             catch (JSONException e){
                 //Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
