@@ -58,6 +58,9 @@ String url;
 
             @Override
             public void afterTextChanged(Editable editable) {
+                String num=binding.phoneNumber.getText().toString();
+                String first=num.substring(0,4);
+                if(first=="0936")
                 binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
             }
         });
