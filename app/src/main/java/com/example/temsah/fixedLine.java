@@ -49,26 +49,7 @@ public class fixedLine extends AppCompatActivity {
                 callAPI(number);
             }
         });
-        binding.phone.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                //String number=binding.phone.getText().toString();
-               // String firstthreenum=number.substring(0,2);
-                //if(firstthreenum.equals("021")){}
-                binding.imageView2.setVisibility(View.VISIBLE);
-                binding.imageView2.setImageResource(R.drawable.mtower);
-            }
-        });
         binding.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,11 +97,13 @@ public class fixedLine extends AppCompatActivity {
 
             try {
                    JSONObject jsonObject=new JSONObject(response.body().string());
-                Finalterm=jsonObject.getJSONArray("data").getJSONObject(0).getString("FinalTerm");
-                MidTerm=jsonObject.getJSONArray("data").getJSONObject(1).getString("MidTerm");
+                   JSONObject data=jsonObject.getJSONObject("data");
+                   JSONObject finalterm=data.getJSONObject("FinalTerm");
+                   Long amount=finalterm.getLong("Amount");
+                Finalterm=amount.toString();
+
                 binding.midbill.setVisibility(View.VISIBLE);
                 binding.finbill.setVisibility(View.VISIBLE);
-
                 binding.fin.setVisibility(View.VISIBLE);
                 binding.mid.setVisibility(View.VISIBLE);
                 binding.midbill.setText(MidTerm);
