@@ -3,6 +3,7 @@ package com.example.temsah;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -44,6 +45,27 @@ public class fixedLine extends AppCompatActivity {
             public void onClick(View view) {
                 String number=binding.phone.getText().toString();
                 callAPI(number);
+            }
+        });
+        binding.infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentabout = new Intent(fixedLine.this, aboutUs.class);
+                startActivity(intentabout);
+            }
+        });
+        binding.contactUsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentcontact = new Intent(fixedLine.this, contactUs.class);
+                startActivity(intentcontact);
+            }
+        });
+        binding.appIconBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentmain = new Intent(fixedLine.this, MainActivity2.class);
+                startActivity(intentmain);
             }
         });
     }

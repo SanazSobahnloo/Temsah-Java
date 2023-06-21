@@ -46,10 +46,34 @@ String url;
 
 
 
+        binding.infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentabout = new Intent(phoneCharge.this, aboutUs.class);
+                startActivity(intentabout);
+
+            }
+        });
+        binding.contactUsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentcontact = new Intent(phoneCharge.this, contactUs.class);
+                startActivity(intentcontact);
+            }
+        });
+        binding.appIconBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentmain = new Intent(phoneCharge.this, MainActivity2.class);
+                startActivity(intentmain);
+            }
+        });
         binding.buyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String number=binding.phoneNumber.getText().toString();
+                String firstthreenum=number.substring(0,3);
+                if (firstthreenum.equals("0936")){binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));}
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
                 callAPI(number,operator,amount);
             }
@@ -63,7 +87,7 @@ String url;
                 binding.bwIrancel.setVisibility(View.VISIBLE);
                 binding.rightel.setVisibility(View.INVISIBLE);
                 binding.bwRightel.setVisibility(View.VISIBLE);
-                binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+                //binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
                 operator=1;
 
             }
