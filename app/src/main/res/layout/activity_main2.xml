@@ -30,16 +30,14 @@ This is the Home Page-->
         app:srcCompat="@drawable/play_icon" />
 
     <Button
-        android:id="@+id/registerBtn"
+        android:id="@+id/chargeBtn"
         android:layout_width="77dp"
         android:layout_height="85dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="379dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="408dp"
+        android:layout_marginEnd="36dp"
         android:background="#00FFFFFF"
         android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/estelamBtn"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -48,7 +46,7 @@ This is the Home Page-->
         android:layout_height="85dp"
         android:layout_marginStart="46dp"
 
-        android:layout_marginTop="379dp"
+        android:layout_marginTop="408dp"
         android:layout_marginEnd="52dp"
         android:background="#00FFFFFF"
         android:text=""
@@ -57,42 +55,36 @@ This is the Home Page-->
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/chargeBtn"
+        android:id="@+id/registerBtn"
         android:layout_width="77dp"
         android:layout_height="85dp"
-        android:layout_marginTop="379dp"
-        android:layout_marginEnd="39dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="408dp"
         android:background="#00FFFFFF"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/contactUsBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/estelamBtn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/contactUsBtn"
         android:layout_width="77dp"
         android:layout_height="85dp"
-        android:layout_marginStart="292dp"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="42dp"
         android:background="#00FFFFFF"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/aboutUsBtn"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chargeBtn" />
 
     <Button
         android:id="@+id/aboutUsBtn"
         android:layout_width="77dp"
         android:layout_height="85dp"
-        android:layout_marginStart="295dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginEnd="39dp"
         android:background="#00FFFFFF"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactUsBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

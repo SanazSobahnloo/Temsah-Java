@@ -26,7 +26,7 @@
         android:layout_width="290dp"
         android:layout_height="46dp"
         android:layout_marginStart="43dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="79dp"
         android:ems="10"
         android:hint="+98"

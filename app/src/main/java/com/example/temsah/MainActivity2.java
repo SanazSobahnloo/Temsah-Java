@@ -32,7 +32,6 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-
         binding.contactUsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,14 +54,14 @@ public class MainActivity2 extends AppCompatActivity {
         binding.chargeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(intentAboutUs);
+                startActivity(intentPhoneCharge);
             }
         });
 
         binding.aboutUsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(intentPhoneCharge);
+                startActivity(intentAboutUs);
             }
         });
 
