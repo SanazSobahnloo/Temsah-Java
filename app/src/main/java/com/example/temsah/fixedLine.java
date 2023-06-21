@@ -104,7 +104,8 @@ public class fixedLine extends AppCompatActivity {
             object.put("FixedLineNumber",number);
         }
         catch (Exception e){
-            Toast.makeText(fixedLine.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(fixedLine.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
         }
         RequestBody requestBody=RequestBody.create(object.toString(),JSON);
         Request request=new Request.Builder().url("https://charge.sep.ir/Inquiry/FixedLineBillInquiry")
@@ -122,6 +123,7 @@ public class fixedLine extends AppCompatActivity {
 
             try {
                    JSONObject jsonObject=new JSONObject(response.body().string());
+
                    JSONObject data=jsonObject.getJSONObject("data");
                    String finalterm=data.getJSONObject("FinalTerm").getString("Amount");
                 String BILL=data.getJSONObject("FinalTerm").getString("BillID");
@@ -130,6 +132,7 @@ public class fixedLine extends AppCompatActivity {
 
                 String mid=data.getJSONObject("MidlTerm").getString("Amount");
                 String BILLM=data.getJSONObject("MidlTerm").getString("BillID");
+
 
                 binding.midbill.setVisibility(View.VISIBLE);
                 binding.finbill.setVisibility(View.VISIBLE);
@@ -143,7 +146,8 @@ public class fixedLine extends AppCompatActivity {
                 binding.idfin.setText(BILL.toString());
                 }
             catch (JSONException e){
-                Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                throw new RuntimeException(e);
             }
             }
         });

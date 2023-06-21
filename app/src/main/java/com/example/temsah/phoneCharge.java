@@ -229,6 +229,7 @@ String URL
         }
         RequestBody requestBody=RequestBody.create(object.toString(),JSON);
         Request request=new Request.Builder().url("https://topup.pec.ir/")
+
                 .post(requestBody)
                 .build();
         try {
@@ -239,6 +240,9 @@ String URL
                 URL = jsonObject.getString("url");
                 Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(URL));
                 startActivity(intent);
+            }
+            else {
+
             }
         }
         catch (Exception e){}
