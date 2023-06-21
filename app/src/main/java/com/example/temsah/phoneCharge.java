@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.Editable;
@@ -216,40 +217,46 @@ String URL
 
     }
 
-    private void callAPI(String number,int operator, int amount) {
-        JSONObject object=new JSONObject();
+
+    // Create a reusable OkHttpClient instance outside the method
+    private static OkHttpClient client = new OkHttpClient();
+
+    private void callAPI(String number, int operator, int amount) {
+        JSONObject object = new JSONObject();
         try {
-            object.put("MobileNo",number);
-            object.put("OperatorType",operator);
-            object.put("AmountPure",amount);
-            object.put("mid","0");
+            object.put("mobile_number", number);
+            object.put("operator", operator);
+            object.put("amount", amount);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            return;
         }
-        catch (Exception e){
-            Toast.makeText(phoneCharge.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-        }
-        RequestBody requestBody=RequestBody.create(object.toString(),JSON);
-        Request request=new Request.Builder().url("https://topup.pec.ir/")
+
+        RequestBody requestBody = RequestBody.create(object.toString(), MediaType.parse("application/json"));
+        Request request = new Request.Builder()
+                .url("https://example.com/api/endpoint")
+                .header("X-Heartbeat-Interval", "300")
                 .post(requestBody)
                 .build();
-        Client.newCall(request).enqueue(new Callback() {
-    @Override
-    public void onFailure(@NonNull Call call, @NonNull IOException e) {
-        Toast.makeText(phoneCharge.this,"failed", Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-        try {
-            JSONObject jsonObject = new JSONObject(response.body().string());
-            URL = jsonObject.getString("url");
-            Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(URL));
-            startActivity(intent);
-        } catch (JSONException e) {
-            Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
-});
-
+        // Execute the network request asynchronously using AsyncTask
+        AsyncTask.execute(() -> {
+            try {
+                Response response = client.newCall(request).execute();
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    // Handle successful response
+                } else {
+                    String responseBody = response.body().string();
+                    // Handle unsuccessful response
+                }
+                response.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
