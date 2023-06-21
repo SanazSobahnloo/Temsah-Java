@@ -85,6 +85,14 @@ String URL
                     operator=1;
                 } else if (charSequence.toString().startsWith("0921")) {
                     binding.button2.setBackgroundColor(Color.parseColor("#941063"));
+                    binding.bwRightel.setVisibility(View.INVISIBLE);
+                    binding.rightel.setVisibility(View.VISIBLE);
+                    binding.irancel.setVisibility(View.INVISIBLE);
+                    binding.bwIrancel.setVisibility(View.VISIBLE);
+                    binding.hamrahAval.setVisibility(View.INVISIBLE);
+                    binding.bwHamrahAval.setVisibility(View.VISIBLE);
+
+                    operator=3;
                 }
                 else {binding.button2.setBackgroundColor(Color.parseColor("#ffffff"));
                     binding.bwRightel.setVisibility(View.VISIBLE);
@@ -93,8 +101,7 @@ String URL
                     binding.bwIrancel.setVisibility(View.VISIBLE);
                     binding.hamrahAval.setVisibility(View.INVISIBLE);
                     binding.bwHamrahAval.setVisibility(View.VISIBLE);
-
-                    operator=3;}
+                    }
 
             }
 

@@ -49,9 +49,9 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                binding.midbill.setVisibility(View.VISIBLE);
-                binding.mid.setVisibility(View.VISIBLE);
-                binding.mid.setText(url.toString());
+
+                String number=binding.phone.getText().toString();
+                callAPI(number);
             }
         });
 
@@ -77,8 +77,6 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
-                String number=binding.phone.getText().toString();
-                callAPI(number);
             }
         });
         binding.infoBtn.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +145,9 @@ public class fixedLine extends AppCompatActivity {
 
                 binding.idfin.setVisibility(View.VISIBLE);
                 binding.idmid.setVisibility(View.VISIBLE);*/
-
+                binding.midbill.setVisibility(View.VISIBLE);
+                binding.mid.setVisibility(View.VISIBLE);
+                binding.mid.setText(url);
                 /*binding.finbill.setText(finalterm.toString());
                 binding.idmid.setText(BILLM.toString());
                 binding.idfin.setText(BILL.toString());*/
