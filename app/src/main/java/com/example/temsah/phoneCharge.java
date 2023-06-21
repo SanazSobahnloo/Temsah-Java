@@ -1,12 +1,15 @@
 package com.example.temsah;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -33,6 +36,7 @@ public class phoneCharge extends AppCompatActivity {
             = MediaType.get("application/json;charset=utf-8");
     OkHttpClient Client=new OkHttpClient();
 
+    private static final int RESULT_PICK_CONTACT =1;
     Integer price;
     Integer finalprice;
     Integer maliat=300;
@@ -45,6 +49,14 @@ String url;
         setContentView(R.layout.activity_phone_charge);
         binding=ActivityPhoneChargeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        String num=binding.phoneNumber.getText().toString();
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in=new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
+                startActivityForResult(in , RESULT_PICK_CONTACT);
+            }
+        });
         binding.phoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -54,14 +66,12 @@ String url;
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+                if (charSequence.toString().startsWith("0936")){binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));}
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                String num=binding.phoneNumber.getText().toString();
-                String first=num.substring(0,4);
-                if(first=="0936")
-                binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));
+
             }
         });
         binding.infoBtn.setOnClickListener(new View.OnClickListener() {
@@ -201,8 +211,6 @@ String url;
     @Override
     public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
         try {
-
-
             JSONObject jsonObject = new JSONObject(response.body().string());
             url = jsonObject.getJSONArray("data").getJSONObject(0).getString("url");
             Uri uri=Uri.parse(url);
@@ -210,13 +218,39 @@ String url;
 
         } catch (JSONException e) {
             Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
         }
     }
 });
 
-
-
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode==RESULT_OK)
+        {
+            switch (requestCode) {
+                case RESULT_PICK_CONTACT:
+                    contactPicked(data);
+                    break;
+            }
+        }
+        else {
+            Toast.makeText(phoneCharge.this, "failed to pick", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void contactPicked(Intent data){
+        Cursor cursor=null;
+        try {
+            String phonepick=null;
+            Uri uripick=data.getData();
+                   cursor=getContentResolver().query(uripick,null,null,null,null) ;
+                   cursor.moveToFirst();
+                   int phoneindex=cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+                   phonepick=cursor.getString(phoneindex);
+                   binding.phoneNumber.setText(phonepick);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

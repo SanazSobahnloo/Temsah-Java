@@ -65,6 +65,7 @@ public class fixedLine extends AppCompatActivity {
                 //String number=binding.phone.getText().toString();
                // String firstthreenum=number.substring(0,2);
                 //if(firstthreenum.equals("021")){}
+                binding.imageView2.setVisibility(View.VISIBLE);
                 binding.imageView2.setImageResource(R.drawable.mtower);
             }
         });
@@ -117,6 +118,11 @@ public class fixedLine extends AppCompatActivity {
                    JSONObject jsonObject=new JSONObject(response.body().string());
                 Finalterm=jsonObject.getJSONArray("data").getJSONObject(0).getString("FinalTerm");
                 MidTerm=jsonObject.getJSONArray("data").getJSONObject(1).getString("MidTerm");
+                binding.midbill.setVisibility(View.VISIBLE);
+                binding.finbill.setVisibility(View.VISIBLE);
+
+                binding.fin.setVisibility(View.VISIBLE);
+                binding.mid.setVisibility(View.VISIBLE);
                 binding.midbill.setText(MidTerm);
                 binding.finbill.setText(Finalterm);
                 }

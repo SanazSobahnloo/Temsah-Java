@@ -10,15 +10,15 @@
 
     <EditText
         android:id="@+id/phoneNumber"
-        android:layout_width="247dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="219dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="144dp"
         android:ems="10"
 
         android:inputType="phone"
         android:maxLength="11"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="82dp" />
+        tools:layout_editor_absoluteX="110dp" />
 
     <EditText
         android:id="@+id/priceBtn"
@@ -248,6 +248,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.817"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="44dp"
+        android:layout_height="41dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="144dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

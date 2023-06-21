@@ -3,9 +3,12 @@ package com.example.temsah;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.example.temsah.databinding.ActivityFixedLineBinding;
 import com.example.temsah.databinding.ActivityLoginBinding;
@@ -25,6 +28,12 @@ public class login extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 binding.maleIcon.setVisibility(View.VISIBLE);
                 binding.femaleIcon.setVisibility(View.INVISIBLE);
+                if(TextUtils.isEmpty(binding.name.getText()) && TextUtils.isEmpty(binding.phoneNumber.getText()))
+                {
+                    Toast.makeText(login.this,"please enter your name and number!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    binding.saveBtn.setBackgroundColor(Color.parseColor("#4CD555"));}
             }
         });
         binding.female.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -32,6 +41,12 @@ public class login extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 binding.maleIcon.setVisibility(View.INVISIBLE);
                 binding.femaleIcon.setVisibility(View.VISIBLE);
+                if(TextUtils.isEmpty(binding.name.getText()) && TextUtils.isEmpty(binding.phoneNumber.getText()))
+                {
+                    Toast.makeText(login.this,"please enter your name and number!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    binding.saveBtn.setBackgroundColor(Color.parseColor("#4CD555"));}
             }
         });
         binding.saveBtn.setOnClickListener(new View.OnClickListener() {
