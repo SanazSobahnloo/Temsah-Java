@@ -72,8 +72,8 @@ String url;
             @Override
             public void onClick(View view) {
                 String number=binding.phoneNumber.getText().toString();
-                String firstthreenum=number.substring(0,3);
-                if (firstthreenum.equals("0936")){binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));}
+                String firstthreenum=number.substring(0,4);
+                if (firstthreenum=="0936"){binding.phoneNumber.setBackgroundColor(Color.parseColor("#54c5d0"));}
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
                 callAPI(number,operator,amount);
             }
