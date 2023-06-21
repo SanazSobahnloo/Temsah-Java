@@ -179,7 +179,7 @@ String URL
         binding.p10000.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.priceBtn.setText("1000");
+                binding.priceBtn.setText("10000");
                 price=Integer.parseInt(binding.priceBtn.getText().toString());
                 finalprice=(price+maliat);
                 binding.showCharge.setText(finalprice.toString());
@@ -188,7 +188,7 @@ String URL
          binding.p20000.setOnClickListener(new View.OnClickListener() {
                @Override
                 public void onClick(View view) {
-                   binding.priceBtn.setText("2000");
+                   binding.priceBtn.setText("20000");
                    price=Integer.parseInt(binding.priceBtn.getText().toString());
                    finalprice=(price+maliat);
                    binding.showCharge.setText(finalprice.toString());
@@ -197,7 +197,7 @@ String URL
          binding.p50000.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 binding.priceBtn.setText("5000");
+                 binding.priceBtn.setText("50000");
                  price=Integer.parseInt(binding.priceBtn.getText().toString());
                  finalprice=(price+maliat);
                  binding.showCharge.setText(finalprice.toString());
@@ -207,7 +207,7 @@ String URL
          binding.p100000.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 binding.priceBtn.setText("10000");
+                 binding.priceBtn.setText("100000");
                  price=Integer.parseInt(binding.priceBtn.getText().toString());
                  finalprice=(price+maliat);
                  binding.showCharge.setText(finalprice.toString());
