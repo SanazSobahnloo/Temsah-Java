@@ -36,6 +36,7 @@ public class fixedLine extends AppCompatActivity {
     
     String MidTerm;
     String Finalterm;
+    String url;
       
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class fixedLine extends AppCompatActivity {
 
                 binding.midbill.setVisibility(View.VISIBLE);
                 binding.mid.setVisibility(View.VISIBLE);
+                binding.mid.setText(url.toString());
             }
         });
 
@@ -128,7 +130,7 @@ public class fixedLine extends AppCompatActivity {
             try {
                    JSONObject jsonObject=new JSONObject(response.body().string());
 
-                   String url=jsonObject.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
+                   url=jsonObject.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
                    /*JSONObject data=jsonObject.getJSONObject("data");
                    String finalterm=data.getJSONObject("FinalTerm").getString("Amount");
                 String BILL=data.getJSONObject("FinalTerm").getString("BillID");
@@ -145,7 +147,7 @@ public class fixedLine extends AppCompatActivity {
 
                 binding.idfin.setVisibility(View.VISIBLE);
                 binding.idmid.setVisibility(View.VISIBLE);*/
-                binding.mid.setText(url.toString());
+
                 /*binding.finbill.setText(finalterm.toString());
                 binding.idmid.setText(BILLM.toString());
                 binding.idfin.setText(BILL.toString());*/
