@@ -87,8 +87,8 @@ String URL
                     binding.button2.setBackgroundColor(Color.parseColor("#941063"));
                 }
                 else {binding.button2.setBackgroundColor(Color.parseColor("#ffffff"));
-                    binding.bwRightel.setVisibility(View.INVISIBLE);
-                    binding.rightel.setVisibility(View.VISIBLE);
+                    binding.bwRightel.setVisibility(View.VISIBLE);
+                    binding.rightel.setVisibility(View.INVISIBLE);
                     binding.irancel.setVisibility(View.INVISIBLE);
                     binding.bwIrancel.setVisibility(View.VISIBLE);
                     binding.hamrahAval.setVisibility(View.INVISIBLE);
@@ -231,7 +231,18 @@ String URL
         Request request=new Request.Builder().url("https://topup.pec.ir/")
                 .post(requestBody)
                 .build();
-        Client.newCall(request).enqueue(new Callback() {
+        try {
+            Response response = Client.newCall(request).execute();
+
+            if (response.isSuccessful()){
+                JSONObject jsonObject = new JSONObject(response.body().string());
+                URL = jsonObject.getString("url");
+                Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(URL));
+                startActivity(intent);
+            }
+        }
+        catch (Exception e){}
+       /* Client.newCall(request).enqueue(new Callback() {
     @Override
     public void onFailure(@NonNull Call call, @NonNull IOException e) {
         Toast.makeText(phoneCharge.this,"failed", Toast.LENGTH_SHORT).show();
@@ -248,7 +259,7 @@ String URL
             Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-});
+});*/
 
     }
 
