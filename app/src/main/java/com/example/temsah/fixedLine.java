@@ -117,7 +117,7 @@ public class fixedLine extends AppCompatActivity {
             object.put("FixedLineNumber",text);
         }
         catch (Exception e) {
-            Toast.makeText(fixedLine.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+         //   Toast.makeText(fixedLine.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         RequestBody requestBody=RequestBody.create(object.toString(),JSON);
         Request request=new Request.Builder().url("https://charge.sep.ir/Inquiry/FixedLineBillInquiry")
@@ -127,7 +127,7 @@ public class fixedLine extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                Toast.makeText(fixedLine.this,"failed", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(fixedLine.this,"failed", Toast.LENGTH_SHORT).show();
             }
 
             @Override
