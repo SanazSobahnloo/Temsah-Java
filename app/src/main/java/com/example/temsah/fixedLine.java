@@ -91,7 +91,7 @@ public class fixedLine extends AppCompatActivity {
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(fixedLine.this,"toast",Toast.LENGTH_SHORT).show();
+                Toast.makeText(fixedLine.this,"toast",Toast.LENGTH_SHORT).show();
                 binding.textView9.setText(re1);
             }
         });
@@ -103,7 +103,7 @@ public class fixedLine extends AppCompatActivity {
             object.put("FixedLineNumber",text);
         }
         catch (Exception e) {
-         //   Toast.makeText(fixedLine.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+           Toast.makeText(fixedLine.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         RequestBody requestBody=RequestBody.create(object.toString(),JSON);
         Request request=new Request.Builder().url("https://charge.sep.ir/Inquiry/FixedLineBillInquiry")
@@ -129,8 +129,8 @@ public class fixedLine extends AppCompatActivity {
 
                 }
             catch (JSONException e){
-                //Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
-                throw new RuntimeException(e);
+                Toast.makeText(fixedLine.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
             }
         });
