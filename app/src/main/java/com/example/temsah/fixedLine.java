@@ -35,7 +35,6 @@ public class fixedLine extends AppCompatActivity {
     public static final MediaType JSON
             = MediaType.get("application/json;charset=utf-8");
     OkHttpClient client=new OkHttpClient();
-    
 
     String re1,re2,re3,re4,re5;
 
@@ -92,7 +91,14 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(fixedLine.this,"toast",Toast.LENGTH_SHORT).show();
+                binding.textView10.setVisibility(View.VISIBLE);
+                binding.textView7.setVisibility(View.VISIBLE);
+                binding.textView11.setVisibility(View.VISIBLE);
                 binding.textView9.setText(re1);
+                binding.textView5.setText(re2);
+                binding.textView8.setText(re3);
+                binding.textView6.setText(re4);
+                binding.textView12.setText(re5);
             }
         });
     }

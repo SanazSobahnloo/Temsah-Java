@@ -267,7 +267,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="312dp"
         android:text="TextView"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -278,7 +278,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="292dp"
         android:text="TextView"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -289,7 +289,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="328dp"
         android:text="TextView"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
