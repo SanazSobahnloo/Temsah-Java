@@ -75,9 +75,20 @@ String URL
                 startActivity(intentmain);
             }
         });
-        binding.buyBtn.setOnClickListener(new View.OnClickListener() {
+        binding.phoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                binding.textView2.setText(binding.phoneNumber.getText());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
 
             }
         });
@@ -93,6 +104,7 @@ String URL
 
                 operator=1;
 
+                binding.textView3.setText(operator.toString());
 
 
             }
@@ -108,6 +120,7 @@ String URL
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                 operator=2;
+                binding.textView3.setText(operator.toString());
 
             }
         });
@@ -122,6 +135,7 @@ String URL
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                 operator=3;
+                binding.textView3.setText(operator.toString());
 
 
             }
@@ -133,6 +147,7 @@ String URL
                 price=Integer.parseInt(binding.priceBtn.getText().toString());
                 finalprice=(price+maliat);
                 binding.showCharge.setText(finalprice.toString());
+                binding.textView4.setText(binding.priceBtn.getText());
             }
         });
          binding.p20000.setOnClickListener(new View.OnClickListener() {
@@ -142,6 +157,7 @@ String URL
                    price=Integer.parseInt(binding.priceBtn.getText().toString());
                    finalprice=(price+maliat);
                    binding.showCharge.setText(finalprice.toString());
+                   binding.textView4.setText(binding.priceBtn.getText());
                 }
          });
          binding.p50000.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +167,7 @@ String URL
                  price=Integer.parseInt(binding.priceBtn.getText().toString());
                  finalprice=(price+maliat);
                  binding.showCharge.setText(finalprice.toString());
+                 binding.textView4.setText(binding.priceBtn.getText());
 
              }
          });
@@ -161,6 +178,7 @@ String URL
                  price=Integer.parseInt(binding.priceBtn.getText().toString());
                  finalprice=(price+maliat);
                  binding.showCharge.setText(finalprice.toString());
+                 binding.textView4.setText(binding.priceBtn.getText());
              }
          });
 
