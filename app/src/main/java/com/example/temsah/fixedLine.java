@@ -36,8 +36,7 @@ public class fixedLine extends AppCompatActivity {
             = MediaType.get("application/json;charset=utf-8");
     OkHttpClient client=new OkHttpClient();
     
-    String MidTerm;
-    String Finalterm;
+
     String re1,re2,re3,re4,re5;
 
     @Override
@@ -89,6 +88,12 @@ public class fixedLine extends AppCompatActivity {
                 startActivity(intentmain);
             }
         });
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(fixedLine.this,"toast",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void callAPI(CharSequence text) {
@@ -109,7 +114,6 @@ public class fixedLine extends AppCompatActivity {
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 //Toast.makeText(fixedLine.this,"failed", Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
@@ -117,13 +121,10 @@ public class fixedLine extends AppCompatActivity {
                    JSONObject jsonObject=new JSONObject(response.body().string());
 
                  re5=object.getJSONObject("data").getJSONObject("MidTerm").getString("BillID");
-                re1=object.getJSONObject("data").getJSONObject("MidTerm").getString("Amount");
-              re2=object.getJSONObject("data").getJSONObject("MidTerm").getString("PaymentID");
-                re3=object.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
-                re4=object.getJSONObject("data").getJSONObject("FinalTerm").getString("PaymentID");
-
-
-
+                 re1=object.getJSONObject("data").getJSONObject("MidTerm").getString("Amount");
+                 re2=object.getJSONObject("data").getJSONObject("MidTerm").getString("PaymentID");
+                 re3=object.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
+                 re4=object.getJSONObject("data").getJSONObject("FinalTerm").getString("PaymentID");
 
                 }
             catch (JSONException e){
