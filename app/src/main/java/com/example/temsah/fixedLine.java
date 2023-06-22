@@ -91,7 +91,7 @@ public class fixedLine extends AppCompatActivity {
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(fixedLine.this,"toast",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(fixedLine.this,"toast",Toast.LENGTH_SHORT).show();
                 binding.textView9.setText(re1);
             }
         });
