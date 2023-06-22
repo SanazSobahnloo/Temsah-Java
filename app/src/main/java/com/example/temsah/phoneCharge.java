@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.Editable;
@@ -73,6 +72,7 @@ String URL
                     binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                     operator=2;
+                    binding.textView3.setText(operator);
 
 
                 } else if (charSequence.toString().startsWith("0912")) {
@@ -84,6 +84,7 @@ String URL
                     binding.rightel.setVisibility(View.INVISIBLE);
                     binding.bwRightel.setVisibility(View.VISIBLE);
                     operator=1;
+                    binding.textView3.setText(operator);
                 } else if (charSequence.toString().startsWith("0921")) {
                     binding.button2.setBackgroundColor(Color.parseColor("#941063"));
                     binding.bwRightel.setVisibility(View.INVISIBLE);
@@ -94,17 +95,20 @@ String URL
                     binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                     operator=3;
+                    binding.textView3.setText(operator);
                 }
                 else {binding.button2.setBackgroundColor(Color.parseColor("#ffffff"));
-                    binding.bwRightel.setVisibility(View.INVISIBLE);
-                    binding.rightel.setVisibility(View.VISIBLE);
+                    binding.bwRightel.setVisibility(View.VISIBLE);
+                    binding.rightel.setVisibility(View.INVISIBLE);
                     binding.irancel.setVisibility(View.INVISIBLE);
                     binding.bwIrancel.setVisibility(View.VISIBLE);
                     binding.hamrahAval.setVisibility(View.INVISIBLE);
                     binding.bwHamrahAval.setVisibility(View.VISIBLE);
                     }
+                binding.textView2.setText(binding.phoneNumber.getText());
 
             }
+
 
             @Override
             public void afterTextChanged(Editable editable) {
@@ -137,10 +141,9 @@ String URL
             @Override
             public void onClick(View view) {
                 String number=binding.phoneNumber.getText().toString();
-                String firstthreenum=number.substring(0,4);
 
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
-                callAPI(number,operator,amount);
+                callAPI(binding.textView2.getText().toString(),binding.textView3.getText().toString(),binding.textView4.getText().toString());
             }
         });
         binding.bwHamrahAval.setOnClickListener(new View.OnClickListener() {
@@ -187,7 +190,7 @@ String URL
         binding.p10000.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.priceBtn.setText("1000");
+                binding.priceBtn.setText("10000");
                 price=Integer.parseInt(binding.priceBtn.getText().toString());
                 finalprice=(price+maliat);
                 binding.showCharge.setText(finalprice.toString());
@@ -196,7 +199,7 @@ String URL
          binding.p20000.setOnClickListener(new View.OnClickListener() {
                @Override
                 public void onClick(View view) {
-                   binding.priceBtn.setText("2000");
+                   binding.priceBtn.setText("20000");
                    price=Integer.parseInt(binding.priceBtn.getText().toString());
                    finalprice=(price+maliat);
                    binding.showCharge.setText(finalprice.toString());
@@ -205,7 +208,7 @@ String URL
          binding.p50000.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 binding.priceBtn.setText("5000");
+                 binding.priceBtn.setText("50000");
                  price=Integer.parseInt(binding.priceBtn.getText().toString());
                  finalprice=(price+maliat);
                  binding.showCharge.setText(finalprice.toString());
@@ -215,55 +218,68 @@ String URL
          binding.p100000.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 binding.priceBtn.setText("10000");
+                 binding.priceBtn.setText("100000");
                  price=Integer.parseInt(binding.priceBtn.getText().toString());
                  finalprice=(price+maliat);
                  binding.showCharge.setText(finalprice.toString());
              }
          });
 
+        binding.priceBtn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                binding.textView4.setText(binding.priceBtn.getText());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
-
-    // Create a reusable OkHttpClient instance outside the method
-    private static OkHttpClient client = new OkHttpClient();
-
-    private void callAPI(String number, int operator, int amount) {
-        JSONObject object = new JSONObject();
+    private void callAPI(String number,String operat,String amount) {
+        JSONObject object=new JSONObject();
         try {
-            object.put("mobile_number", number);
-            object.put("operator", operator);
-            object.put("amount", amount);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-            return;
+            object.put("MobileNo",number);
+            object.put("OperatorType",operat);
+            object.put("AmountPure",amount);
+            object.put("mid","0");
         }
+        catch (Exception e){
+            Toast.makeText(phoneCharge.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+        RequestBody requestBody=RequestBody.create(object.toString(),JSON);
+        Request request=new Request.Builder().url("https://topup.pec.ir/")
 
-        RequestBody requestBody = RequestBody.create(object.toString(), MediaType.parse("application/json"));
-        Request request = new Request.Builder()
-                .url("https://example.com/api/endpoint")
-                .header("X-Heartbeat-Interval", "300")
                 .post(requestBody)
                 .build();
 
-        // Execute the network request asynchronously using AsyncTask
-        AsyncTask.execute(() -> {
-            try {
-                Response response = client.newCall(request).execute();
-                if (response.isSuccessful()) {
-                    String responseBody = response.body().string();
-                    // Handle successful response
-                } else {
-                    String responseBody = response.body().string();
-                    // Handle unsuccessful response
-                }
-                response.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        Client.newCall(request).enqueue(new Callback() {
+    @Override
+    public void onFailure(@NonNull Call call, @NonNull IOException e) {
+        Toast.makeText(phoneCharge.this,"failed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+        try {
+            JSONObject jsonObject = new JSONObject(response.body().string());
+            URL = jsonObject.getString("url");
+            Intent intentp=new Intent(Intent.ACTION_VIEW,Uri.parse(URL));
+            startActivity(intentp);
+        } catch (JSONException e) {
+            Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+});
+
     }
 
 
