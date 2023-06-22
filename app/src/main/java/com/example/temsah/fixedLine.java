@@ -52,14 +52,7 @@ public class fixedLine extends AppCompatActivity {
             public void onClick(View view) {
 
                 callAPI(binding.textView5.getText().toString());
-                binding.mid.setVisibility(View.VISIBLE);
-                binding.fin.setVisibility(View.VISIBLE);
-               binding.textView6.setText(re5);
-               binding.textView7.setText(re5);
-                binding.midbill.setText(re1);
-                binding.finbill.setText(re3);
-                binding.idmid.setText(re2);
-                binding.idfin.setText(re4);
+
             }
         });
 
@@ -141,6 +134,14 @@ public class fixedLine extends AppCompatActivity {
                 re3=object.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
                 re4=object.getJSONObject("data").getJSONObject("FinalTerm").getString("PaymentID");
 
+                binding.mid.setVisibility(View.VISIBLE);
+                binding.fin.setVisibility(View.VISIBLE);
+                binding.textView6.setText(re5);
+                binding.textView7.setText(re5);
+                binding.midbill.setText(re1);
+                binding.finbill.setText(re3);
+                binding.idmid.setText(re2);
+                binding.idfin.setText(re4);
 
 
                 }
