@@ -64,7 +64,7 @@ public class fixedLine extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                Toast.makeText(fixedLine.this,"test",Toast.LENGTH_SHORT).show();
+                callAPI(binding.copy.getText());
 
             }
         });
