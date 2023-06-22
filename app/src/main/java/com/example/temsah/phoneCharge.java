@@ -61,7 +61,7 @@ String URL
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                if (charSequence.toString().startsWith("0937")){binding.button2.setBackgroundColor(Color.parseColor("#febe10"));
+               /* if (charSequence.toString().startsWith("0937")){binding.button2.setBackgroundColor(Color.parseColor("#febe10"));
 
 
                     binding.bwIrancel.setVisibility(View.INVISIBLE);
@@ -104,7 +104,7 @@ String URL
                     binding.bwIrancel.setVisibility(View.VISIBLE);
                     binding.hamrahAval.setVisibility(View.INVISIBLE);
                     binding.bwHamrahAval.setVisibility(View.VISIBLE);
-                    }
+                    }*/
                 binding.textView2.setText(binding.phoneNumber.getText());
 
             }
@@ -157,6 +157,8 @@ String URL
                 binding.bwRightel.setVisibility(View.VISIBLE);
 
                 operator=1;
+                binding.textView3.setText(operator);
+
 
             }
         });
@@ -171,6 +173,7 @@ String URL
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                 operator=2;
+                binding.textView3.setText(operator);
             }
         });
         binding.bwRightel.setOnClickListener(new View.OnClickListener() {
@@ -184,6 +187,7 @@ String URL
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                 operator=3;
+                binding.textView3.setText(operator);
 
             }
         });
