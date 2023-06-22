@@ -23,6 +23,7 @@ public class MainActivity2 extends AppCompatActivity {
         Intent intentLogin = new Intent(this, login.class);
         Intent intentFixedLine = new Intent(this, fixedLine.class);
         Intent intentPhoneCharge = new Intent(this, phoneCharge.class);
+
         Intent intent=getIntent();
         String name=intent.getStringExtra("name");
         String phone=intent.getStringExtra("phone");
