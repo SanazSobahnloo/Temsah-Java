@@ -181,6 +181,12 @@ String URL
                  binding.textView4.setText(binding.priceBtn.getText());
              }
          });
+         binding.buyBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 callAPI(binding.textView2.getText().toString(),binding.textView3.getText().toString(),binding.textView4.getText().toString());
+             }
+         });
 
 
     }
