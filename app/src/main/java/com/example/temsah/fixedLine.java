@@ -47,21 +47,7 @@ public class fixedLine extends AppCompatActivity {
         binding= ActivityFixedLineBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.estelamBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                callAPI(binding.textView5.getText().toString());
-                binding.mid.setVisibility(View.VISIBLE);
-                binding.fin.setVisibility(View.VISIBLE);
-               binding.textView6.setText(re5);
-               binding.textView7.setText(re5);
-                binding.midbill.setText(re1);
-                binding.finbill.setText(re3);
-                binding.idmid.setText(re2);
-                binding.idfin.setText(re4);
-            }
-        });
 
         binding.phone.addTextChangedListener(new TextWatcher() {
             @Override
@@ -72,9 +58,9 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                if (charSequence.toString().startsWith("021")){binding.imageView3.setVisibility(View.VISIBLE);
+                /*if (charSequence.toString().startsWith("021")){binding.imageView3.setVisibility(View.VISIBLE);
                     binding.imageView4.setVisibility(View.INVISIBLE);
-                }
+                }*/
 
                 binding.textView5.setText(binding.phone.getText().toString().trim());
 
@@ -83,7 +69,22 @@ public class fixedLine extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                callAPI(binding.textView5.getText());
 
+            }
+        });
+        binding.estelamBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                binding.mid.setVisibility(View.VISIBLE);
+                binding.fin.setVisibility(View.VISIBLE);
+                binding.textView6.setText(re5);
+                binding.textView7.setText(re5);
+                binding.midbill.setText(re1);
+                binding.finbill.setText(re3);
+                binding.idmid.setText(re2);
+                binding.idfin.setText(re4);
 
             }
         });
@@ -140,6 +141,7 @@ public class fixedLine extends AppCompatActivity {
               re2=object.getJSONObject("data").getJSONObject("MidTerm").getString("PaymentID");
                 re3=object.getJSONObject("data").getJSONObject("FinalTerm").getString("Amount");
                 re4=object.getJSONObject("data").getJSONObject("FinalTerm").getString("PaymentID");
+
 
 
 
