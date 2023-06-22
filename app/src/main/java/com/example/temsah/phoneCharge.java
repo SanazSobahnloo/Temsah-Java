@@ -140,8 +140,8 @@ String URL
         binding.buyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String number=binding.phoneNumber.getText().toString();
-
+                String numbe=binding.phoneNumber.getText().toString();
+                binding.textView3.setText(operator);
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
                 callAPI(binding.textView2.getText().toString(),binding.textView3.getText().toString(),binding.textView4.getText().toString());
             }
@@ -157,7 +157,7 @@ String URL
                 binding.bwRightel.setVisibility(View.VISIBLE);
 
                 operator=1;
-                binding.textView3.setText(operator);
+
 
 
             }
@@ -173,7 +173,7 @@ String URL
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                 operator=2;
-                binding.textView3.setText(operator);
+
             }
         });
         binding.bwRightel.setOnClickListener(new View.OnClickListener() {
@@ -187,7 +187,7 @@ String URL
                 binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                 operator=3;
-                binding.textView3.setText(operator);
+
 
             }
         });
