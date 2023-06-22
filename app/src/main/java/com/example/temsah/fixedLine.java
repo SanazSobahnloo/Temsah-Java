@@ -51,7 +51,7 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                callAPI(binding.textView5.getText().toString());
                 binding.mid.setVisibility(View.VISIBLE);
                 binding.fin.setVisibility(View.VISIBLE);
                binding.textView6.setText(re5);
@@ -83,7 +83,7 @@ public class fixedLine extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                callAPI(binding.textView5.getText().toString());
+
 
             }
         });
