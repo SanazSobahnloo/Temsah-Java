@@ -12,6 +12,7 @@ public class MainActivity2 extends AppCompatActivity {
     ActivityMain2Binding binding;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityMain2Binding.inflate(getLayoutInflater());
