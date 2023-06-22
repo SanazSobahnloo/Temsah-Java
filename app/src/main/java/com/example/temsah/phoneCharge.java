@@ -72,6 +72,7 @@ String URL
                     binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                     operator=2;
+                    binding.textView3.setText(operator);
 
 
                 } else if (charSequence.toString().startsWith("0912")) {
@@ -83,6 +84,7 @@ String URL
                     binding.rightel.setVisibility(View.INVISIBLE);
                     binding.bwRightel.setVisibility(View.VISIBLE);
                     operator=1;
+                    binding.textView3.setText(operator);
                 } else if (charSequence.toString().startsWith("0921")) {
                     binding.button2.setBackgroundColor(Color.parseColor("#941063"));
                     binding.bwRightel.setVisibility(View.INVISIBLE);
@@ -93,6 +95,7 @@ String URL
                     binding.bwHamrahAval.setVisibility(View.VISIBLE);
 
                     operator=3;
+                    binding.textView3.setText(operator);
                 }
                 else {binding.button2.setBackgroundColor(Color.parseColor("#ffffff"));
                     binding.bwRightel.setVisibility(View.VISIBLE);
@@ -102,8 +105,10 @@ String URL
                     binding.hamrahAval.setVisibility(View.INVISIBLE);
                     binding.bwHamrahAval.setVisibility(View.VISIBLE);
                     }
+                binding.textView2.setText(binding.phoneNumber.getText());
 
             }
+
 
             @Override
             public void afterTextChanged(Editable editable) {
@@ -138,7 +143,7 @@ String URL
                 String number=binding.phoneNumber.getText().toString();
 
                 Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
-                callAPI(number,operator,amount);
+                callAPI(binding.textView2.getText().toString(),binding.textView3.getText().toString(),binding.textView4.getText().toString());
             }
         });
         binding.bwHamrahAval.setOnClickListener(new View.OnClickListener() {
@@ -220,13 +225,30 @@ String URL
              }
          });
 
+        binding.priceBtn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                binding.textView4.setText(binding.priceBtn.getText());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
-    private void callAPI(String number,int operator, int amount) {
+    private void callAPI(String number,String operat,String amount) {
         JSONObject object=new JSONObject();
         try {
             object.put("MobileNo",number);
-            object.put("OperatorType",operator);
+            object.put("OperatorType",operat);
             object.put("AmountPure",amount);
             object.put("mid","0");
         }
@@ -250,8 +272,8 @@ String URL
         try {
             JSONObject jsonObject = new JSONObject(response.body().string());
             URL = jsonObject.getString("url");
-            Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(URL));
-            startActivity(intent);
+            Intent intentp=new Intent(Intent.ACTION_VIEW,Uri.parse(URL));
+            startActivity(intentp);
         } catch (JSONException e) {
             Toast.makeText(phoneCharge.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
