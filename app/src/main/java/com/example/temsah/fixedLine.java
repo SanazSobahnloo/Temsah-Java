@@ -35,7 +35,6 @@ public class fixedLine extends AppCompatActivity {
     public static final MediaType JSON
             = MediaType.get("application/json;charset=utf-8");
     OkHttpClient client=new OkHttpClient();
-    
 
     String re1,re2,re3,re4,re5;
 

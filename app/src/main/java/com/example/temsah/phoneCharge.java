@@ -52,69 +52,7 @@ String URL
         setContentView(binding.getRoot());
         String num=binding.phoneNumber.getText().toString();
 
-        binding.phoneNumber.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-               /* if (charSequence.toString().startsWith("0937")){binding.button2.setBackgroundColor(Color.parseColor("#febe10"));
-
-
-                    binding.bwIrancel.setVisibility(View.INVISIBLE);
-                    binding.irancel.setVisibility(View.VISIBLE);
-                    binding.rightel.setVisibility(View.INVISIBLE);
-                    binding.bwRightel.setVisibility(View.VISIBLE);
-                    binding.hamrahAval.setVisibility(View.INVISIBLE);
-                    binding.bwHamrahAval.setVisibility(View.VISIBLE);
-
-                    operator=2;
-                    binding.textView3.setText(operator);
-
-
-                } else if (charSequence.toString().startsWith("0912")) {
-                    binding.button2.setBackgroundColor(Color.parseColor("#54c5d0"));
-                    binding.bwHamrahAval.setVisibility(View.INVISIBLE);
-                    binding.hamrahAval.setVisibility(View.VISIBLE);
-                    binding.irancel.setVisibility(View.INVISIBLE);
-                    binding.bwIrancel.setVisibility(View.VISIBLE);
-                    binding.rightel.setVisibility(View.INVISIBLE);
-                    binding.bwRightel.setVisibility(View.VISIBLE);
-                    operator=1;
-                    binding.textView3.setText(operator);
-                } else if (charSequence.toString().startsWith("0921")) {
-                    binding.button2.setBackgroundColor(Color.parseColor("#941063"));
-                    binding.bwRightel.setVisibility(View.INVISIBLE);
-                    binding.rightel.setVisibility(View.VISIBLE);
-                    binding.irancel.setVisibility(View.INVISIBLE);
-                    binding.bwIrancel.setVisibility(View.VISIBLE);
-                    binding.hamrahAval.setVisibility(View.INVISIBLE);
-                    binding.bwHamrahAval.setVisibility(View.VISIBLE);
-
-                    operator=3;
-                    binding.textView3.setText(operator);
-                }
-                else {binding.button2.setBackgroundColor(Color.parseColor("#ffffff"));
-                    binding.bwRightel.setVisibility(View.VISIBLE);
-                    binding.rightel.setVisibility(View.INVISIBLE);
-                    binding.irancel.setVisibility(View.INVISIBLE);
-                    binding.bwIrancel.setVisibility(View.VISIBLE);
-                    binding.hamrahAval.setVisibility(View.INVISIBLE);
-                    binding.bwHamrahAval.setVisibility(View.VISIBLE);
-                    }*/
-                binding.textView2.setText(binding.phoneNumber.getText());
-
-            }
-
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
         binding.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,10 +78,7 @@ String URL
         binding.buyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String numbe=binding.phoneNumber.getText().toString();
-                binding.textView3.setText(operator);
-                Integer amount=Integer.parseInt( binding.priceBtn.getText().toString());
-                callAPI(binding.textView2.getText().toString(),binding.textView3.getText().toString(),binding.textView4.getText().toString());
+
             }
         });
         binding.bwHamrahAval.setOnClickListener(new View.OnClickListener() {
@@ -229,23 +164,7 @@ String URL
              }
          });
 
-        binding.priceBtn.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                binding.textView4.setText(binding.priceBtn.getText());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
     }
 
     private void callAPI(String number,String operat,String amount) {
