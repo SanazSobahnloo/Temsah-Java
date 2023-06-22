@@ -49,6 +49,7 @@ public class fixedLine extends AppCompatActivity {
 
 
 
+
         binding.phone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -58,33 +59,11 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                /*if (charSequence.toString().startsWith("021")){binding.imageView3.setVisibility(View.VISIBLE);
-                    binding.imageView4.setVisibility(View.INVISIBLE);
-                }*/
-
-                binding.textView5.setText(binding.phone.getText().toString().trim());
-
-
+                binding.copy.setText(binding.phone.getText());
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                callAPI(binding.textView5.getText());
-
-            }
-        });
-        binding.estelamBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                binding.mid.setVisibility(View.VISIBLE);
-                binding.fin.setVisibility(View.VISIBLE);
-                binding.textView6.setText(re5);
-                binding.textView7.setText(re5);
-                binding.midbill.setText(re1);
-                binding.finbill.setText(re3);
-                binding.idmid.setText(re2);
-                binding.idfin.setText(re4);
 
             }
         });
