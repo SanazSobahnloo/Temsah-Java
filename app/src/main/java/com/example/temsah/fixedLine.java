@@ -74,10 +74,7 @@ public class fixedLine extends AppCompatActivity {
 
                 if (charSequence.toString().startsWith("021")){binding.imageView3.setVisibility(View.VISIBLE);
                     binding.imageView4.setVisibility(View.INVISIBLE);
-                } else if (charSequence.toString().startsWith("051")) {
-                    binding.imageView3.setVisibility(View.INVISIBLE);
-                    binding.imageView4.setVisibility(View.VISIBLE);
-                } else binding.imageView3.setVisibility(View.INVISIBLE);
+                }
 
                 binding.textView5.setText(binding.phone.getText().toString().trim());
 
