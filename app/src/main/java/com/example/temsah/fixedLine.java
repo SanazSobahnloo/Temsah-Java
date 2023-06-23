@@ -57,12 +57,16 @@ public class fixedLine extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+                if(charSequence.toString().startsWith("021")){binding.imageView2.setVisibility(View.VISIBLE);
+
+                }
                 binding.copy.setText(binding.phone.getText());
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                callAPI(binding.copy.getText());
+                if(binding.phone.length()==11){
+                callAPI(binding.copy.getText());}
 
             }
         });

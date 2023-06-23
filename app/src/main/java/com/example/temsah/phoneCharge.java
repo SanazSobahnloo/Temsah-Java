@@ -184,8 +184,12 @@ String URL
          binding.buyBtn.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 callAPI(binding.textView2.getText().toString(),binding.textView3.getText().toString(),binding.textView4.getText().toString());
-             }
+                 if(binding.phoneNumber.length()==11) {
+
+                     callAPI(binding.textView2.getText().toString(), binding.textView3.getText().toString(), binding.textView4.getText().toString());
+                 }
+                 else{Toast.makeText(phoneCharge.this,"invalid number",Toast.LENGTH_SHORT).show();}
+                 }
          });
 
 
